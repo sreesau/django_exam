@@ -1,0 +1,13 @@
+{% extends "base_page.html" %}
+{% load static %} 
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% block content %}
+<div class="front">
+  <p>EFFECTIVE MEDICINE, NEW MEDICINE EVERYDAY </p> 
+  <p>WELCOME TO MEDISITE</p> 
+  <P>OPENS 24/7</P>
+  <p>The Medisite has the following Medicine counts:</p>
+  <p>No.of Medicines available in this site:</strong> {{ num_medicine }}</p>
+  
+</div>
+{% endblock %}

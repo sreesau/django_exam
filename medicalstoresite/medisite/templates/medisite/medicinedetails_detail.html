@@ -1,0 +1,10 @@
+{% extends "base_page.html" %}
+
+{% block content %}
+  <h1>Medicine Name: {{ medicinedetails.name }}</h1>
+  <p><strong>Quantity:</strong> {{ medicinedetails.quantity }}</p>
+  <p><strong>Price:</strong> {{ medicinedetails.price }}</p> 
+  <p><strong>Manufactured Date:</strong> {{ medicinedetails.mfg_date }}</p>  
+  <p><strong>Expiry Date:</strong> {{ medicinedetails.exp_date }}</p> 
+  </div>
+{% endblock %}
