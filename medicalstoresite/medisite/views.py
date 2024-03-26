@@ -1,3 +1,4 @@
+from django.http import Http404
 from django.shortcuts import render
 from medisite.models import MedicineDetails
 from django.views import generic
@@ -19,12 +20,17 @@ def index(request):
     }
     return render(request, 'index.html', context=context)
 
-class MedicineDetailsListView(generic.ListView):
-    model = MedicineDetails
+def medicine_details_list_view(request):
+    medicines = MedicineDetails.objects.all()
+    return render(request,'medisite/medicinedetails_list.html',{'medicines': medicines})
 
-class MedicineDetailsDetailView(generic.DetailView):
-    model = MedicineDetails
-    
+def medicine_details_details_view(request,pk):
+    try:
+        medicinedetails = MedicineDetails.objects.get(pk=pk)
+    except MedicineDetails.DoesNotExist:
+         raise Http404 ('Medicine does not Exist')
+    return render(request,'medisite/medicinedetails_details.html',{'medicinedetails': medicinedetails})
+
 class MedicineDetailsCreate(CreateView):
     model = MedicineDetails
     fields = '__all__'

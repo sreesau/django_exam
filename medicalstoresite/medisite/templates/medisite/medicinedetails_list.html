@@ -2,15 +2,15 @@
 
 {% block content %}
   <h1>MedicineDetails List</h1>
-  {% if medicinedetails_list %}
+  {% if medicines %}
   <ul>
-    {% for medicinedetails in medicinedetails_list %}
+    {% for medicine in medicines %}
       <li>
-        <a href="medicinedetails.get_absolute_url ">{{ medicinedetails.name }}</a> ({{medicinedetails.quantity}})
+        <a href="{{ medicine.get_absolute_url }}">{{ medicine.name }}</a>
       </li>
     {% endfor %}
   </ul>
   {% else %}
-    <p>There are no medicine in the site.</p>
+    <p>There are no medicines in the site.</p>
   {% endif %}       
 {% endblock %}
