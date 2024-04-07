@@ -1,14 +1,43 @@
+
 {% extends "base_page.html" %}
+{% block content %}
 
-{% block content %} 
-
-<div class="container py-5">
-	<h1>Register</h1>
-	<form method="POST">
-		{% csrf_token %}
-		{{ register_form }}                    
-		<button class="btn btn-primary" type="submit">Register</button>
-	</form>
+<div class="container">
+    <h2>Register</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_username">Username:</label>
+            {{ register_form.username }}
+            {% if register_form.username.errors %}
+            <p class="text-danger">{{ register_form.username.errors }}</p>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="id_email">Email:</label>
+            {{ register_form.email }}
+            {% if register_form.email.errors %}
+            <p class="text-danger">{{ register_form.email.errors }}</p>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="id_password1">Password:</label>
+            {{ register_form.password1 }}
+            {% if register_form.password1.errors %}
+            <p class="text-danger">{{ register_form.password1.errors }}</p>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="id_password2">Password confirmation:</label>
+            {{ register_form.password2 }}
+            {% if register_form.password2.errors %}
+            <p class="text-danger">{{ register_form.password2.errors }}</p>
+            {% endif %}
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+</div>
 	<p class="text-center">If you already have an account, <a href="{% url 'login'%}?next={{request.path}}">login</a> instead.</p>
 </div>
+
 {% endblock %} 

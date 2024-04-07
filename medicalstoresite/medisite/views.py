@@ -19,6 +19,8 @@ def index(request):
         'num_medicine': num_medicine
     }
     return render(request, 'index.html', context=context)
+def about(request):
+    return render(request, 'about.html',)
 
 def medicine_details_list_view(request):
     medicines = MedicineDetails.objects.all()
@@ -52,7 +54,7 @@ def registration_view(request):
             user = form.save()
             return redirect('login')
     else:
-        form = RegistrationForm()
+        form = RegistrationForm(initial={})
 
     return render(request, 'register.html', context={"register_form":form})
 

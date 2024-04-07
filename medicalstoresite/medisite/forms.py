@@ -10,7 +10,7 @@ class RegistrationForm(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2']
 
     def clean_email(self):
-        email = self.cleaned_data['email']
-        if not email(email): 
+        email = self.cleaned_data.get('email')
+        if email and not '@' in email:
             raise forms.ValidationError("Invalid email address. Please enter a valid email.")
         return email
