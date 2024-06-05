@@ -1,43 +1,33 @@
 
 {% extends "base_page.html" %}
 {% block content %}
-
-<div class="container">
-    <h2>Register</h2>
+<div class="container-fluid vh-100 d-flex align-items-center justify-content-center mt-4">
+    <div class="card " style="width: 500px;border-radius:30px";>
+      <div class="card-body">
+        <h2 class="card-title text-center">Register</h2>
     <form method="post">
         {% csrf_token %}
-        <div class="form-group">
-            <label for="id_username">Username:</label>
-            {{ register_form.username }}
-            {% if register_form.username.errors %}
-            <p class="text-danger">{{ register_form.username.errors }}</p>
-            {% endif %}
-        </div>
-        <div class="form-group">
-            <label for="id_email">Email:</label>
-            {{ register_form.email }}
-            {% if register_form.email.errors %}
-            <p class="text-danger">{{ register_form.email.errors }}</p>
-            {% endif %}
-        </div>
-        <div class="form-group">
-            <label for="id_password1">Password:</label>
-            {{ register_form.password1 }}
-            {% if register_form.password1.errors %}
-            <p class="text-danger">{{ register_form.password1.errors }}</p>
-            {% endif %}
-        </div>
-        <div class="form-group">
-            <label for="id_password2">Password confirmation:</label>
-            {{ register_form.password2 }}
-            {% if register_form.password2.errors %}
-            <p class="text-danger">{{ register_form.password2.errors }}</p>
-            {% endif %}
-        </div>
-        <button type="submit" class="btn btn-primary">Register</button>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" style="border-radius: 20px;" class="form-control" id="username" name="username" required>
+              </div>
+              <div>
+              <label for="email">Email:</label>
+                <input type="text" style="border-radius: 20px;" class="form-control" id="username" name="username" required>
+              </div>
+              <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password"style="border-radius: 20px;" class="form-control" id="password" name="password" required>
+              </div>
+              <div class="form-group">
+                <label for="passwordcnf">Password Confirmation:</label>
+                <input type="password"style="border-radius: 20px;" class="form-control" id="password" name="password" required>
+              </div>
+              <button type="submit" style="border-radius: 20px;" class="btn btn-primary btn-block mb-2">Register</button>
     </form>
 </div>
 	<p class="text-center">If you already have an account, <a href="{% url 'login'%}?next={{request.path}}">login</a> instead.</p>
 </div>
-
+</div>
+</div>
 {% endblock %} 

@@ -29,8 +29,8 @@
         </ul>
                {% if user.is_authenticated %}
                  <span >User: {{ user.get_username }}</span>
-                  <a href="{% url 'medicinedetails_create'%}?next={{request.path}}" style="margin:10px;">Add Medicine</a></li>
-                  <a href="{% url 'medicinedetails_list'%}?next={{request.path}}"style="margin:10px;">View Medicines</a></li>
+                  <a href="{% url 'medicinedetails_create'%}?next={{request.path}}" style="margin:10px;">Add</a></li>
+                  <a href="{% url 'medicinedetails_list'%}?next={{request.path}}"style="margin:10px;">View</a></li>
                  <form action="{% url 'search' %}" method="POST">
                   {% csrf_token %} 
                   <label>Search Medicines
