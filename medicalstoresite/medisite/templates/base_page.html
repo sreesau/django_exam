@@ -34,7 +34,10 @@
                   <input type="text" name="name">
                   <input type="submit" name="submit" value="Search"></label>
              </form>
-             <span><a href="{% url 'logout'%}"style="margin:10px;">Logout</a></span>   
+             <form action="{% url 'logout' %}" method="POST">
+              {% csrf_token %} 
+              <input type="submit" value="Logout"></label>
+             </form>
               {% else %}
                   <span><a href="{% url 'login'%}?next={{request.path}}"style="margin:10px;">Login</a></span>   
               {% endif %}   
