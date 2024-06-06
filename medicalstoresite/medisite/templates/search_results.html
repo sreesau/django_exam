@@ -1,21 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends "base_page.html" %}
 
-<h2>Medicine Details</h2>
-{% for result in results %}
-<li><strong>Medicine:</strong>{{ result.name }}</li>
-<li><strong>Quantity:</strong>{{ result.quantity }}</li>
-<li><strong>Price:</strong>{{ result.price}}</li>
-<li><strong>Manufactured Date:</strong>{{ result.mfg_date }}</li>
-<li><strong>Expiry Date:</strong>{{ result.exp_date }}</li>
-<hr>
+{% block content %}
+<div class="container-fluid vh-100 d-flex align-items-center justify-content-center mt-4">
+    <div class="card" style="width: 500px; border-radius: 30px;">
+      <div class="card-body d-flex flex-column align-items-center">
+{% for result in search_results %}
+<h5 class="card-title">{{ result.name }}</h5>
+                    <p class="card-text"><strong>Quantity:</strong> {{ result.quantity }}</p>
+                    <p class="card-text"><strong>Price:</strong> {{ result.price }}</p>
+                    <p class="card-text"><strong>Manufactured Date:</strong> {{ result.mfg_date }}</p>
+                    <p class="card-text"><strong>Expiry Date:</strong> {{ result.exp_date }}</p>
 {% endfor %}
-</body>
-</html>
+      </div>
+    </div>
+</div>
+{% endblock %}

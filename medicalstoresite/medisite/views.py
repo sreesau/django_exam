@@ -36,16 +36,16 @@ def medicine_details_details_view(request,pk):
 class MedicineDetailsCreate(CreateView):
     model = MedicineDetails
     fields = '__all__'
-    success_url = reverse_lazy('medicaldetails')    
+    success_url = reverse_lazy('medicinedetails_list')    
 
 class MedicineDetailsUpdate(UpdateView):
     model = MedicineDetails
     fields = '__all__'
-    success_url = reverse_lazy('medicaldetails')
+    success_url = reverse_lazy('medicinedetails_list')
 
 class MedicineDetailsDelete(DeleteView):
     model = MedicineDetails
-    success_url = reverse_lazy('medicaldetails')
+    success_url = reverse_lazy('medicinedetails_list')
 
 def registration_view(request):
     if request.method == 'POST':
@@ -62,7 +62,7 @@ def registration_view(request):
 def search_medicine(request):
     if request.method == 'POST':
         search_query = request.POST.get('name', '')
-        search_results = MedicineDetails.objects.filter(name__icontains=search_medicine)
+        search_results = MedicineDetails.objects.filter(name__icontains=search_query)
         return render(request, 'search_results.html', {'search_results': search_results})
     else:
-        return render(request, 'search_results.html')
+        return render(request, 'search_results.html', {})

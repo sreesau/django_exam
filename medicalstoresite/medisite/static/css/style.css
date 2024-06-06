@@ -2,16 +2,8 @@ body{
     background-image: url(https://img.freepik.com/free-photo/notebook-pen-near-medical-supplies_23-2147796472.jpg?size=626&ext=jpg&ga=GA1.1.1899334552.1707136899&semt=ais_user);
     background-repeat: no-repeat;
 }
-
-b{
-    color: #008000;
-    font-size: 70px;
-    padding-left: 20px;
-}
-.front{
-    background-size: cover;
-    text-align: center;
-    padding: 50px;
+nav {
+    margin-bottom: 0;
 }
 .front p{
     color: #f46402;

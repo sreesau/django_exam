@@ -1,14 +1,16 @@
 {% extends "base_page.html" %}
 
 {% block content %}
-
-<h1>Delete Medicine Details</h1>
-
+<div class="container-fluid vh-100 d-flex justify-content-center mt-4">
+  <div class="card" style="width: 500px; border-radius: 30px;">
+    <div class="card-body d-flex flex-column align-items-center">
+      <h1 class="card-title text-center">Delete Medicine</h1>
 <p>Are you sure you want to delete the Medicine Details: {{ medicinedetails}}?</p>
-
 <form action="" method="POST">
   {% csrf_token %}
   <input type="submit" value="Yes, delete.">
 </form>
-
+</div>
+  </div>
+</div>
 {% endblock %}
