@@ -2,12 +2,12 @@
 {% load static %} 
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% block content %}
-<div class="front">
-  <p>EFFECTIVE MEDICINE, NEW MEDICINE EVERYDAY </p> 
-  <p>WELCOME TO MEDISITE</p> 
-  <P>OPENS 24/7</P>
-  <p>The Medisite has the following Medicine counts:</p>
-  <p>No.of Medicines available in this site:</strong> {{ num_medicine }}</p>
-  
-</div>
+    <div class="front">
+        <p>EFFECTIVE MEDICINE, NEW MEDICINE EVERYDAY </p> 
+        <p>WELCOME TO MEDISITE</p> 
+        <p>OPENS 24/7</p>
+        <p>The Medisite has the following Medicine counts:</p>
+        <p>No.of Medicines available in this site: <strong>{{ num_medicine }}</strong></p>
+    </div>
+
 {% endblock %}

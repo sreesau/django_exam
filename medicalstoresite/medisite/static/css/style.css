@@ -1,14 +1,6 @@
-body{
-    background-image: url(https://img.freepik.com/free-photo/notebook-pen-near-medical-supplies_23-2147796472.jpg?size=626&ext=jpg&ga=GA1.1.1899334552.1707136899&semt=ais_user);
+body {
+    background-image: url('https://wallpaperaccess.com/full/4204994.jpg');
     background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh
 }
-nav {
-    margin-bottom: 0;
-}
-.front p{
-    color: #f46402;
-    font-size: 30px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-
