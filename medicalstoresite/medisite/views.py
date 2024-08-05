@@ -8,6 +8,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.shortcuts import render, redirect
 from .forms import RegistrationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -19,13 +20,16 @@ def index(request):
         'num_medicine': num_medicine
     }
     return render(request, 'index.html', context=context)
+
 def about(request):
     return render(request, 'about.html',)
 
+@login_required
 def medicine_details_list_view(request):
     medicines = MedicineDetails.objects.all()
     return render(request,'medisite/medicinedetails_list.html',{'medicines': medicines})
 
+@login_required
 def medicine_details_details_view(request,pk):
     try:
         medicinedetails = MedicineDetails.objects.get(pk=pk)
@@ -33,17 +37,17 @@ def medicine_details_details_view(request,pk):
          raise Http404 ('Medicine does not Exist')
     return render(request,'medisite/medicinedetails_details.html',{'medicinedetails': medicinedetails})
 
-class MedicineDetailsCreate(CreateView):
+class MedicineDetailsCreate(LoginRequiredMixin,CreateView):
     model = MedicineDetails
     fields = '__all__'
     success_url = reverse_lazy('medicinedetails_list')    
 
-class MedicineDetailsUpdate(UpdateView):
+class MedicineDetailsUpdate(LoginRequiredMixin,UpdateView):
     model = MedicineDetails
     fields = '__all__'
     success_url = reverse_lazy('medicinedetails_list')
 
-class MedicineDetailsDelete(DeleteView):
+class MedicineDetailsDelete(LoginRequiredMixin,DeleteView):
     model = MedicineDetails
     success_url = reverse_lazy('medicinedetails_list')
 
@@ -54,11 +58,11 @@ def registration_view(request):
             user = form.save()
             return redirect('login')
     else:
-        form = RegistrationForm(initial={})
+        form = RegistrationForm()
 
     return render(request, 'register.html', context={"register_form":form})
 
-
+@login_required
 def search_medicine(request):
     if request.method == 'POST':
         search_query = request.POST.get('name', '')

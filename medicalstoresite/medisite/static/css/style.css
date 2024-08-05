@@ -1,0 +1,28 @@
+body {
+    background-image: url('https://thumbs.dreamstime.com/b/pharmacy-drugstore-product-pile-orange-white-tablets-pill-gradient-background-different-size-shape-pills-pharmaceutical-146637815.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+nav {
+    margin-bottom: 0;
+    height: 100px;
+}
+
+.front {
+    margin-top: 40px;
+    justify-content: center;
+    align-items: center;
+    display: flex; 
+    flex-direction: column; 
+    text-align: center; 
+}
+
+.front p {
+    color:#6C946F;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
